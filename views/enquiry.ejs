@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>freastal technologies</title>
+	
+
+  
+
+    <!-- css -->
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" type="text/css" href="./css/style2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- font -->
+    <style>
+    @import url('https://fonts.googleapis.com/css?family=Nunito');
+    </style> 
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.js" integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA="crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+
+</head>
+<body>
+<% include header %>
+
+  <nav>
+    <div class="nav-wrapper">
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <li><a class="waves-effect waves-light btn modal-trigger" href="#modal1">New Client</a></li>
+        <li><a class="waves-effect waves-light btn" href="/attendance/absent">Absent Client</a></li>
+        <li><a class="waves-effect waves-light btn" href="/attendance/present">Present Client</a></li>
+        <li><a class="waves-effect waves-light btn" href="/bulksms">Bulk SMS</a></li>
+        <li><a class="input-field right hide-on-med-and-down right">
+          <form action="/" method="GET">
+          <input id="search" type="search" name="search">
+          <a class="label-icon" onkeypress="dosomething();" for="search"><i class="material-icons">search</i></a>
+          </form>
+        </a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>NEW CLIENT</h4>
+      <p>A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+      <a href="/newclient" class="modal-close waves-effect waves-green btn-flat">Gym member</a>
+      <a href="/newclient" class="modal-close waves-effect waves-green btn-flat">Personal traning</a>
+      <a href="/newclient" class="modal-close waves-effect waves-green btn-flat">Group class</a>
+    </div>
+  </div>
+
+<div class="section9">
+  <div class="container">
+    <form action="/enquiry" method="POST">
+    <div class="row">
+        <div class="row">
+        <div class="input-field col s12">
+             <i class="material-icons prefix">account_circle</i>
+          <input id="clientname" type="text" name="clientname" class="validate">
+          <label for="clientname">Name</label>
+        </div>
+      </div>
+        <div class="row">
+        <div class="input-field col s12">
+             <i class="material-icons prefix">account_circle</i>
+          <input id="contactno" type="text" name="contactno" class="validate">
+          <label for="contactno">Contact Number</label>
+        </div>
+      </div>
+       <div class="row">
+        <div class="input-field col s12">
+             <i class="material-icons prefix">account_circle</i>
+          <input id="altcontactno" type="text" name="altcontactno" class="validate">
+          <label for="altcontactno">Alt Contact Number</label>
+        </div>
+      </div>  
+      <div class="row">
+         <div class="input-field col s12">
+
+            <select name="enquiryfor">
+                      <option name="group3" value="1 months">1 months</option>
+                      <option name="group3" value="2 months">2 months</option>
+                      <option name="group3" value="3 months">3 months</option>
+                      <option name="group3" value="6 months">6 months</option>
+                      <option name="group3" value="1 year">1 year</option>
+                      <option name="group3" value="2 year">2 year</option>
+            </select>
+            <label for="enquiryfor" name="enquiryfor" >Enquiry for</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+             <i class="material-icons prefix">account_circle</i>
+          <input type="text" name="nextfollowup" class="datepicker">
+          <label for="date">Next Follow up Date</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+             <i class="material-icons prefix">account_circle</i>
+          <input type="text" name="trialdate" class="datepicker">
+          <label for="date">Trial Date</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+             <i class="material-icons prefix">account_circle</i>
+          <input type="text" name="followuptime" class="timepicker">
+          <label for="time">Followup Time</label>
+        </div>
+      </div>
+       <div class="row">
+         <div class="input-field col s12">
+
+            <select name="Type">
+                      <option name="group3" value="hot">Hot</option>
+                      <option name="group3" value="warm">Warm</option>
+                      <option name="group3" value="cold">Cold</option>
+            </select>
+            <label for="type" name="Type" >Type</label>
+        </div>
+      </div>
+       <div class="row">
+         <div class="input-field col s12">
+
+            <select name="status">
+                      <option name="group3" value="pending">Pending</option>
+                      <option name="group3" value="done">Done</option>
+                      <option name="group3" value="converted">Coverted</option>
+            </select>
+            <label for="status" name="status" >Status</label>
+        </div>
+      </div>
+       <div class="row">
+        <div class="input-field col s12">
+             <i class="material-icons prefix">account_circle</i>
+          <input id="response" type="text" name="response" class="validate">
+          <label for="response">Reponse/Feedback</label>
+        </div>
+      </div>
+       <div class="row">
+        <div class="input-field col s12">
+             <i class="material-icons prefix">account_circle</i>
+          <input id="attendedby" type="text" name="attendedby" class="validate">
+          <label for="attendedby">Attended By</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+             <i class="material-icons prefix">account_circle</i>
+          <input id="source" type="text" name="source" class="validate">
+          <label for="source">Source of Enquiry</label>
+        </div>
+      </div>
+
+    <input type="hidden" name="instant" value="0"><div class="input-field col l12 s12 m12 center">
+            <button class="btn waves-effect waves-light" id="btnsubmit" type="submit" name="register">Create Enquiry </button>
+    
+     </form>
+    </div>
+  </div>
+
+  <div class="section10">
+  <div class="row">
+    <div class="col s12 m12 l12">
+      <table>
+        <thead>
+          <tr>
+              <th>Name</th>
+              <th>Number</th>
+              <th>For</th>
+              <th>Next-Follow up</th>
+              <th>Status</th>
+              <th>Edit</th>
+              <th>Contact</th>
+              
+          </tr>
+        </thead>
+
+        <% enquiry.forEach(function(enquiry){ %>
+           <tbody>
+          <tr>
+            <td><%= enquiry.clientname %></td>
+            <td><%= enquiry.contactno %></td>
+            <td><%= enquiry.enquiryfor %></td>
+            <td><%= enquiry.nextfollowup %></td>
+            <td><%= enquiry.status %></td>
+            <td><a href="/enquiry/addresponse">Add response</a></td>
+            <td><a href="/enquiry/sms/<%= enquiry._id %>">SMS/</a><a <a onclick="M.toast({html: 'remove succesfully'})" href="/enquiry/call/<%= enquiry._id %>">Call</a></td>
+          </tr> 
+        </tbody>
+        <% }); %>
+      </table>
+      </div>
+  </div>
+  </div>
+
+
+<script>
+  //   document.addEventListener('DOMContentLoaded', function() {
+  //   var elems = document.querySelectorAll('.modal');
+  //   var instances = M.Modal.init(elems, options);
+  // });
+
+  // Or with jQuery
+
+  $(document).ready(function(){
+    $('.modal').modal();
+  });
+
+  $(document).ready(function(){
+    $('.datepicker').datepicker();
+  });
+
+    $(document).ready(function(){
+    $('.timepicker').timepicker();
+  });
+
+    $(document).ready(function(){
+    $('select').formSelect();
+  });
+</script>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.js" integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA="crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+
+
+</body>
+</html>

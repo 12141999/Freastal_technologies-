@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>New Clients</title>
+	
+
+    <!-- css -->
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+     <link rel="stylesheet" type="text/css" href="./css/style2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- font -->
+    <style>
+    @import url('https://fonts.googleapis.com/css?family=Nunito');
+    </style> 
+
+</head>
+<body>
+
+      <div class="section7">
+  <div class="container">
+  <form action="/newclientprofile" method="POST" enctype="multipart/form-data">
+  <div class="row">
+      <div class="row">
+
+         <%= typeof msg != "undefined" ? msg : "" %>
+        <div class="file-field input-field">
+          <div class="btn">
+            <span>PROFILE</span>
+            <input name="myProfile" type="file">
+          </div>
+          <div class="file-path-wrapper">
+            <input class="file-path validate" type="text">
+          </div>
+        </div>
+        <br><br>
+    </div>
+     
+  
+       
+      <input type="hidden" name="instant" value="0"><div class="input-field col l12 s12 m12 center">
+            <button class="btn waves-effect waves-light" id="btnsubmit" type="submit" name="register">submit </button><br><br>
+            <div class="container">        
+            <img src="/views/profile/uploads/<%= k %>" class="responsive-img">
+            </div>
+
+  </div>
+</div>
+  </form>
+  </div>
+</div>
+
+<div class="container">
+    <h1><center>New client</center></h1>
+    <p><center>Enter your details</center></p>
+  <form action="/newclient" method="POST">  
+  <div class="row">
+    <form class="col s12">
+       <div class="row">
+        <div class="input-field col s12">
+             <i class="material-icons prefix">account_circle</i>
+             <% var no %>
+             <% no = number+1 %>
+          <input id="invoiceno" type="text" name="invoiceno" class="validate" value="<%= no %>" readonly>
+          <label for="invoiceno">invoice number</label>
+        </div>
+      </div>
+       <div class="row">
+        <div class="input-field col s12">
+             <i class="material-icons prefix">account_circle</i>
+          <input id="profilename" type="text" name="profilename" class="validate" value="<%= k %>" readonly>
+          <label for="profilename">Profile</label>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="input-field col s12">
+             <i class="material-icons prefix">account_circle</i>
+          <input id="clientname" type="text" name="clientname" class="validate">
+          <label for="clientname">Clientname</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+             <i class="material-icons prefix">account_circle</i>
+          <input id="membershipid" type="text" name="membershipid" class="validate">
+          <label for="membershipid">Membership ID</label>
+        </div>
+      </div>
+       <div class="row">
+        <div class="input-field col s12">
+              <i class="material-icons prefix">phone</i>
+          <input id="contactno" type="text" name="contactno" class="validate">
+          <label for="contactno">Contact no</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+              <i class="material-icons prefix">phone</i>
+          <input id="alternatecontactno" type="text" name="alternatecontactno" class="validate">
+          <label for="alternatecontactno">Alternate Contact no</label>
+        </div>
+      </div>
+    
+      <div class="row">
+          <div class="col s12">
+          <label for="gender" name="gender" style="font-size: 16px;"a>Gender</label> 
+            <p>
+            <label>
+            <input value="male" type="radio" name="group1" checked />
+            <span>male</span>
+          </label >
+          <label>
+            <input value ="female" type="radio" name="group1" />
+            <span>female</span>
+          </label>
+           </p>
+        </div>
+      </div>
+
+      
+       <div class="row">
+        <div class="input-field col s12">
+             <i class="material-icons prefix">account_circle</i>
+          <input id="address" type="text" name="address" class="validate">
+          <label for="address">Address</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+             <i class="material-icons prefix">account_circle</i>
+          <input id="profession" type="text" name="profession" class="validate">
+          <label for="profession">Profession</label>
+        </div>
+      </div>
+       <div class="row">
+        <div class="input-field col s12">
+             <i class="material-icons prefix">account_circle</i>
+          <input id="email" type="email" name="email" class="validate">
+          <label for="email">Email</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+             <i class="material-icons prefix">account_circle</i>
+          <input type="text" name="marriageanniversary" class="datepicker">
+          <label for="marriageanniversary">Marriage anniversary</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+             <i class="material-icons prefix">account_circle</i>
+             <label for="DOB">Date of birth</label>
+          
+          <input type="text" name="DOB" class="datepicker">
+        
+          <!-- <label for="DOB">Date of birth</label> -->
+        </div>
+      </div>
+
+    <div class="input-field col s12">
+
+    <select name="clientsource">
+      <option value="" disabled selected>Choose your option</option>
+            <option name="group2" value="cold calling">cold calling</option>
+            <option name="group2" value="event">event</option>
+            <option name="group2" value="flex">flex</option>
+            <option name="group2" value="flyer">flyer</option>
+            <option name="group2" value="instagram">instagram</option>
+            <option name="group2" value="newspaper">Newspaper</option>
+    </select>
+    <label for="clientsource" name="clientsource" >Client Source</label>
+  </div>
+  <div class="row">
+        <div class="input-field col s12">
+             <i class="material-icons prefix">account_circle</i>
+          <input type="text" name="dateofbill" class="datepicker">
+          <label for="dateofbill">Date of Bill</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+             <i class="material-icons prefix">account_circle</i>
+          <input type="text" name="dateofjoining" class="datepicker">
+          <label for="dateofjoining">Date of Joining</label>
+        </div>
+      </div>
+         <div class="input-field col s12">
+
+    <select name="packages">
+            <option name="group3" value="1 months">1 months</option>
+            <option name="group3" value="2 months">2 months</option>
+            <option name="group3" value="3 months">3 months</option>
+            <option name="group3" value="6 months">6 months</option>
+            <option name="group3" value="1 year">1 year</option>
+            <option name="group3" value="2 year">2 year</option>
+    </select>
+    <label for="packages" name="packages" >Packages(s)</label>
+  </div>
+
+      <div class="row">
+        <div class="input-field col s12">
+             <i class="material-icons prefix">account_circle</i>
+          <input id="duration" type="text" name="duration" class="validate">
+          <label for="duration">Duration(in days)</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+             <i class="material-icons prefix">account_circle</i>
+          <input id="Packagefees" type="text" name="Packagefees" class="validate">
+          <label for="Packagefees">Package(s) fees</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+             <i class="material-icons prefix">account_circle</i>
+          <input type="text" name="packageenddate" class="datepicker">
+          <label for="packageenddate">Package End Date</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+             <i class="material-icons prefix">account_circle</i>
+          <input id="discount" type="text" name="discount" class="validate">
+          <label for="discount">Discount</label>
+        </div>
+      </div>
+ </div>
+         <div class="input-field col s12">
+
+    <select name="tax">
+      <option value="" disabled selected>Choose your option</option>
+            <p>exclusive tax</p>
+            <option name="group4" value="no tax(0%)">no tax(0%)</option>
+            <option name="group4" value="no tax(0%)">no tax(0%)</option>
+            <option name="group4" value="good and service tax(18%)">good and service tax(18%)</option>
+            <p>inclusive tax</p>
+            <option name="group4" value="no tax(0%)">no tax(0%)</option>
+            <option name="group4" value="good and service tax(18%)">good and service tax(18%)</option>
+    </select>
+    <label for="tax" name="tax" >Tax</label>
+  </div>
+  <div class="row">
+        <div class="input-field col s12">
+             <i class="material-icons prefix">account_circle</i>
+          <input id="amountpayable" type="text" name="amountpayable" class="validate">
+          <label for="amountpayable">Amount Payable</label>
+        </div>
+  </div>
+  <div class="row">
+        <div class="input-field col s12">
+             <i class="material-icons prefix">account_circle</i>
+          <input id="amountpaid" type="text" name="amountpaid" class="validate">
+          <label for="amountpaid">Amount Paid</label>
+        </div>
+  </div>
+     <div class="input-field col s12">
+
+    <select name="paymentmethod">
+      <option value="" disabled selected>Choose your option</option>
+          <option name="group2" value="card">card </option>
+            <option name="group5" value="cash">cash</option>
+            <option name="group5" value="cheque">cheque</option>
+            <option name="group5" value="online payment">online payment</option>
+            <option name="group5" value="paytm">paytm</option>
+            <option name="group5" value="others">others</option>
+    </select>
+    <label for="paymentmethod" name="paymentmethod" >Payment Method</label>
+  </div>
+  <div class="row">
+        <div class="input-field col s12">
+             <i class="material-icons prefix">account_circle</i>
+          <input id="pendingamount" type="text" name="pendingamount" class="validate" value="0">
+          <label for="pendingamount">Pending Amount</label>
+        </div>
+  </div>
+  <div class="row">
+        <div class="input-field col s12">
+             <i class="material-icons prefix">account_circle</i>
+          <input id="trainer" type="text" name="trainer" class="validate">
+          <label for="trainer">Trainer</label>
+        </div>
+  </div>
+  <div class="row">
+        <div class="input-field col s12">
+             <i class="material-icons prefix">account_circle</i>
+          <input id="remarks" type="text" name="remarks" class="validate">
+          <label for="remarks">Remarks</label>
+        </div>
+  </div>
+
+    
+    
+    
+
+    <input type="hidden" name="instant" value="0"><div class="input-field col l12 s12 m12 center">
+            <button class="btn waves-effect waves-light" id="btnsubmit" type="submit" name="register">submit </button>
+      
+      </div>
+    </form>
+  </div>
+</form>
+</div>
+
+
+
+
+<script>
+  
+
+ $(document).ready(function(){
+    $('.modal').modal();
+  });
+
+  $(document).ready(function(){
+    $('.datepicker').datepicker();
+  });
+
+    $(document).ready(function(){
+    $('.timepicker').timepicker();
+  });
+
+    $(document).ready(function(){
+    $('select').formSelect();
+  });
+     
+
+</script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.js" integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA="crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+
+</body>
+</html>

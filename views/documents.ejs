@@ -1,0 +1,163 @@
+
+<% include header %>
+
+  <nav>
+    <div class="nav-wrapper">
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <li><a class="waves-effect waves-light btn modal-trigger" href="#modal1">New Client</a></li>
+        <li><a class="waves-effect waves-light btn" href="/attendance/absent">Absent Client</a></li>
+        <li><a class="waves-effect waves-light btn" href="/attendance/present">Present Client</a></li>
+        <li><a class="waves-effect waves-light btn" href="/bulksms">Bulk SMS</a></li>
+        <li><a class="input-field right hide-on-med-and-down right">
+          <form action="/" method="GET">
+          <input id="search" type="search" name="search">
+          <a class="label-icon" onkeypress="dosomething();" for="search"><i class="material-icons">search</i></a>
+          </form>
+        </a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>NEW CLIENT</h4>
+      <p>choose what you want...</p>
+    </div>
+    <div class="modal-footer">
+      <a href="/newclient" class="modal-close waves-effect waves-green btn-flat">Gym member</a>
+      <a href="/newclient" class="modal-close waves-effect waves-green btn-flat">Personal traning</a>
+      <a href="/newclient" class="modal-close waves-effect waves-green btn-flat">Group class</a>
+    </div>
+  </div>
+
+
+<div>
+  
+  <h3><center><%= client.clientname %></center></h3>
+</div>
+
+  <nav>
+    <div class="nav-wrapper">
+      <ul class="left hide-on-med-and-down">
+        <li><a href="/details/profile" class="waves-effect waves-light btn">PROFILE & BILLING HISTORY</a></li>
+        <li><a href="/details/body/<%= client._id %>" class="waves-effect waves-light btn">BODY MEASUREMENTS</a></li>
+         <li><a href="/details/workout/<%=client._id%>" class="waves-effect waves-light btn">WORKOUT PLANS</a></li>
+        <li><a href="/details/diet/<%=client._id%>" class="waves-effect waves-light btn">DIET PLANS</a></li>
+        <li><a href="/details/documents/<%=client._id%>" class="waves-effect waves-light btn">DOCUMENTS</a></li>
+         <li><a href="/details/attendance/<%= client._id %>" class="waves-effect waves-light btn">ATTENDANCE</a></li>
+      </ul>
+    </div>
+  </nav><br><br><br><br>
+
+<div class="section7">
+  <div class="container">
+  <form action="/details/documents/<%= client._id%>" method="POST" enctype="multipart/form-data" >
+  <div class="row">
+
+   <div class="row" style="display : none;">
+        <div class="input-field col s12">
+             <i class="material-icons prefix">account_circle</i>
+          <input id="clientid" type="text" name="clientid" class="validate" value="<%= client._id %>">
+          <label for="clientid"></label>
+        </div>
+    </div>   
+
+
+    <div class="row">
+        <div class="input-field col s12">
+             <i class="material-icons prefix">account_circle</i>
+          <input id="dname" type="text" name="dname" class="validate">
+          <label for="dname">Document Name</label>
+        </div>
+      </div>
+      <div class="row">
+
+         <%= typeof msg != "undefined" ? msg : "" %>
+        <div class="file-field input-field">
+          <div class="btn">
+            <span>File</span>
+            <input name="myImage" type="file">
+          </div>
+          <div class="file-path-wrapper">
+            <input class="file-path validate" type="text">
+          </div>
+        </div>
+        <br><br>
+    </div>
+     
+
+  
+       
+      <input type="hidden" name="instant" value="0"><div class="input-field col l12 s12 m12 center">
+            <button class="btn waves-effect waves-light" id="btnsubmit" type="submit" name="register">submit </button><br><br>
+
+  </form>
+  
+  
+
+      <div class="container">
+  <div class="jumbotron">
+    <div class="row text-center" style="display : flex; flexwrap : wrap;">
+      
+            
+            
+                <% doc.forEach(function(doc){ %>
+                 <div class="col s12 m6 l4">     
+                 
+                 <div class = "img-responsive" >
+                   <img class="materialboxed" src = "/views/uploads/<%= doc.file %>"  style="width:100%; height:100%;">
+                   </div>
+                   <div class = "caption">
+                   <strong><%= doc.documentname %></strong><br>
+                   </div>
+                   </div>
+                   
+                     <% }); %>
+              
+            
+                 
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>
+  </div>
+</div>
+ 
+
+
+
+
+<script>
+  // console.log("this is also running");
+  // var btn    =   document.getElementById("btnsubmit");
+  // var dname  =   document.getElementById("dname");
+  // var file   =   document.getElementById("myImage");
+  // var show   =   document.getElementById("show");
+  // var view   =   document.getElementById("view");
+
+  // view.addEventListener("click" , function(){
+  //   console.log("okkkkkkkkkkkkkkkkkkkk");
+  //   show.style.display = "block";
+  // });
+
+ $(document).ready(function(){
+    $('.modal').modal();
+  }); 
+
+
+  $(document).ready(function(){
+    $('.materialboxed').materialbox();
+  });
+
+
+</script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.js" integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA="crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+
+
+
+</body>
+</html>

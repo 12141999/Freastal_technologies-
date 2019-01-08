@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Freastal_technologies</title>
+
+
+    <!-- css -->
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" type="text/css" href="./css/style2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- font -->
+    <style>
+    @import url('https://fonts.googleapis.com/css?family=Nunito');
+    </style> 
+
+</head>
+<body>
+
+<div class="container">
+    <h1><center>login</center></h1>
+  
+  <div class="container">
+    <% if(error && error.length > 0){ %>
+    <div class="alert alert-danger" role="alert">
+      <center><%= error %></center>
+    </div>
+    <% } %>
+    <% if(success && success.length > 0){%>
+    <div class="alert alert-success" role="alert">
+      <center><%= success %></center>
+    </div>
+    <%}%>
+  </div>
+
+  <form action="/admin" method="POST">  
+  <div class="row">
+    <form class="col s12">
+        <div class="row">
+        <div class="input-field col s12">
+             <i class="material-icons prefix">account_circle</i>
+          <input id="username" type="text" name="username" class="validate" placeholder="admin">
+          <label for="username">Username</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s12">
+            <i class="material-icons prefix">vpn_key</i>
+          <input id="password" type="password" name="password" class="validate" placeholder="12345">
+          <label for="password">Password</label>
+        </div>
+      </div>
+
+     <input type="hidden" name="instant" value="0"><div class="input-field col l12 s12 m12 center">
+           <button class="btn waves-effect waves-light" id="btnsubmit"  type="submit" name="register">submit </button>
+
+      </div>
+    </form>
+  </div>
+</form>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.js" integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA="crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+</body>
+</html>

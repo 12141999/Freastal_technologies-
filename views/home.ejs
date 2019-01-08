@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>freastal technologies</title>
+
+  
+
+    <!-- css -->
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" type="text/css" href="./css/style2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- font -->
+    <style>
+    @import url('https://fonts.googleapis.com/css?family=Nunito');
+    </style> 
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.js" integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA="crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+<script></script>
+
+</head>
+<body>
+<% include header %>
+
+ <nav>
+    <div class="nav-wrapper">
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <li><a class="waves-effect waves-light btn modal-trigger" href="#modal1">New Client</a></li>
+        <li><a class="waves-effect waves-light btn" href="/attendance/absent">Absent Client</a></li>
+        <li><a class="waves-effect waves-light btn" href="/attendance/present">Present Client</a></li>
+        <li><a class="waves-effect waves-light btn" href="/bulksms">Bulk SMS</a></li>
+        <li><a class="input-field right hide-on-med-and-down right">
+          <form action="/" method="GET">
+          <input id="search" type="search" name="search">
+          <a class="label-icon" onkeypress="dosomething();" for="search"><i class="material-icons">search</i></a>
+          </form>
+        </a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>NEW CLIENT</h4>
+      <p>A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+      <a href="/newclient" class="modal-close waves-effect waves-green btn-flat">Gym member</a>
+      <a href="/newclient" class="modal-close waves-effect waves-green btn-flat">Personal traning</a>
+      <a href="/newclient" class="modal-close waves-effect waves-green btn-flat">Group class</a>
+    </div>
+  </div>
+
+ <div id="test-slider">
+   
+ </div>
+
+<div class="section1">
+<div class="row">
+<div class="col s9 m9 l9">
+  <div class="row">
+     <h1 style="font-size: 22px;"><center>Daily Statastics</center></h1>
+  <div style="color: blue;" class="col s12 m12 l3">
+    <div id="div" style="background-color: blue;">
+     <p style="color: white;margin-left: 10px;">new clients</p>
+    </div>
+  </div>
+  <div style="color: yellow;" class="col s12 m12 l6">
+    <div id="div" style="background-color: yellow;">
+     <p>sales collection</p>
+    </div>
+  </div>
+  <div style="color: green;"class="col s12 m12 l3">
+    <div id="div" style="background-color: pink;">
+     <p>Pending Enquiry(s)</p>
+    </div>
+  </div>
+</div>
+  <div class="row">
+  <div style="color: blue;" class="col s12 m12 l6">
+    <div id="div" style="background-color: green;">
+     <p>Live clients</p>
+    </div>
+  </div>
+  <div style="color: yellow;" class="col s12 m12 l3">
+    <div id="div" style="background-color: purple;">
+     <p>inactive clients</p>
+    </div>
+  </div>
+  <div style="color: green;"class="col s12 m12 l3">
+    <div id="div" style="background-color: blue;">
+     <p>manually inactivated clients</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="col s3 m3 l3">
+  <div id="div2" style="border: 1px solid blue;">
+    <p>Sales Target - </p>
+     <p>79740/100000</p>
+     <% k = 79740*100 %> 
+
+        
+     <p><%=k/10000%></p>
+
+     <p>My Collection - </p>
+     <p><%=count%>/10000</p>
+     <% var k %>
+     <% k = count*100 %> 
+     <p><%=k/10000%></p>
+    
+
+
+
+    
+    
+ </div>
+</div>
+</div>
+</div>
+
+
+
+
+<div class="section3 container">
+  <div class="row">
+    <div class="col s12 m12 l12">
+      <h2 style="font-size: 25px;">search client & enquiry</h2>
+      <form action="/search" method="POST">
+
+    <div class="input-field col s6 m6">
+
+        <select name="option">
+                <option name="group6" value="clientid">Client ID</option>
+        </select>
+        <label for="option" name="option" >option</label>
+  </div>
+
+        <div class="row">
+           <div class="input-field col s6 m6">
+             <i class="material-icons prefix">account_circle</i>
+          <input id="clientname" type="text" name="clientname" class="validate">
+          <label for="clientname">Client ID </label>
+          </div>
+        </div>
+
+       <button type="submit">submit</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="section2 container">
+  <h1 style="font-size: 25px;">pending amount</h1>
+  <div class="row">
+    <div class="col s12 m12 l12">
+      <table>
+        <thead>
+          <tr>
+              <th>Name</th>
+              <th>Number</th>
+              <th>For</th>
+              <th>Next follow up</th>
+              <th>Edit</th>
+              <th>Contact</th>
+              
+          </tr>
+        </thead>
+
+ <% clients1.forEach(function(client){ %>
+
+       
+           <tbody>
+          <tr>
+            <td><%=client.clientname %></td>
+            <td><%=client.contactno %></td>
+            <td><%=client.packages %></td>
+            <td><%=client.dateofjoining %></td>
+            <td><a href="/response/<%= client._id %>">Add response/</a><a href="/applypayment/<%= client._id %>">Apply Payment</a></td>
+            <td><a class="waves-effect waves-light btn modal-trigger" href="/sms/<%= client._id %>">SMS</a></td>
+          </tr>
+        </tbody> 
+
+<% }); %> 
+
+      </table>
+      </div>
+  </div>
+</div>
+ 
+
+
+<div class="section2 container">
+  <h2 style="font-size: 25px;">non-pending amount</h2><div class="row">
+    <div class="col s12 m12 l12">
+      <table>
+        <thead>
+          <tr>
+              <th>Name</th>
+              <th>Number</th>
+              <th>For</th>
+              <th>Next follow up</th>
+              <th>Edit</th>
+              <th>Contact</th>
+              
+          </tr>
+        </thead>
+
+
+ <% clients2.forEach(function(client2){ %>
+         <tbody>
+          <tr>
+            <td><%=client2.clientname %></td>
+            <td><%=client2.contactno %></td>
+            <td><%=client2.packages %></td>
+            <td><%=client2.dateofjoining %></td>
+            <td><a href="/response/<%= client2._id %>">add response/</a><a href="/applypayment/<%= client2._id%>">Apply Payment</a></td>
+            <td><a class="waves-effect waves-light btn modal-trigger" href="/sms/<%= client2._id %>">SMS</a></td>
+          </tr>
+        </tbody>   
+
+<% }); %>
+
+      </table>
+      </div>
+  </div>
+</div>
+    
+ 
+
+
+
+
+<script>
+
+ $(document).ready(function(){
+    $('.modal').modal();
+  });
+
+  $(document).ready(function(){
+    $('.datepicker').datepicker();
+  });
+
+    $(document).ready(function(){
+    $('.timepicker').timepicker();
+  });
+
+    $(document).ready(function(){
+    $('select').formSelect();
+  });
+
+   
+
+</script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.js" integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA="crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/12.0.0/nouislider.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/12.0.0/nouislider.js"></script>
+</body>
+</html>

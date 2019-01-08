@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>navbar</title>
+
+    <!-- css -->
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" type="text/css" href="./css/style2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- font -->
+    <style>
+    @import url('https://fonts.googleapis.com/css?family=Nunito');
+    </style> 
+
+</head>
+<body>
+
+  <nav>
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo left">FREASTAL TECHNOLOGIES</a>
+      <a href="" id="menu" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <% if(error && error.length > 0){ %>
+    <div class="alert alert-danger" role="alert">
+      <center><%= error %></center>
+    </div>
+    <% } %>
+    <% if(success && success.length > 0){%>
+    <div class="alert alert-success" role="alert">
+      <center><%= success %></center>
+    </div>
+    <%}%>
+  </div>
+  
+
+  <ul id="slide-out" class="sidenav">
+    <ul class="collapsible">
+    <li><div class="user-view">
+      <div class="background">
+        <img src="images/back1.jpg" >
+     </div>   
+     <a href="#user"><img class="circle" src="images/logo.png"></a> 
+      <a href="#name"><span class="black-text name">welcome admin</span></a><br>
+     
+       <li><a href="/" class="waves-effect"><i class="material-icons">home</i>DASHBOARD</a></li>
+       <li><a href="/enquiry" class="waves-effect"><i class="material-icons">contact_support</i>ENQUIRY</a></li>
+       <li><a href="/client" class="waves-effect"><i class="material-icons">accessibility</i>CLIENTS</a></li>
+       <li><a href="/expense" class="waves-effect"><i class="material-icons">label_important</i>EXPENSES</a></li>
+       <li><a href="/employee" class="waves-effect"><i class="material-icons">person</i>EMPLOYEE</a></li>
+       <li><a href="/attendance" class="waves-effect"><i class="material-icons">label_important</i>ATTENDANCE</a></li>
+         <li id="setting">
+      <div class="collapsible-header"><i class="material-icons">store</i>MANAGE & SETTINGS</div><br>
+      <div class="collapsible-body"><span>
+      <a href="/setting/addpackage" class="waves-effect">Gym packages</a><br>
+      <a href="/trainer" class="waves-effect">Trainers</a><br>
+      <a href="/asset" class="waves-effect">Business assets</a><br>
+      <a href="/deletedclient" class="waves-effect">Deleted client</a><br>
+      </span></div>
+    </li>
+  </ul>
+</ul>
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.js" integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA="crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+<script>
+  $("#menu").click(function(){
+    $("#menu").attr('data-target', 'slide-out');
+  });
+
+ M.AutoInit();  
+
+</script>
+</body>
+</html>

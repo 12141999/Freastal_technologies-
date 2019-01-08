@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>freastal technologies</title>
+
+
+  
+
+    <!-- css -->
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" type="text/css" href="./css/style2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- font -->
+    <style>
+    @import url('https://fonts.googleapis.com/css?family=Nunito');
+    </style> 
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.js" integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA="crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+
+</head>
+<body>
+<% include header %>
+
+ <nav>
+    <div class="nav-wrapper">
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <li><a class="waves-effect waves-light btn modal-trigger" href="#modal1">New Client</a></li>
+        <li><a class="waves-effect waves-light btn" href="/attendance/absent">Absent Client</a></li>
+        <li><a class="waves-effect waves-light btn" href="/attendance/present">Present Client</a></li>
+        <li><a class="waves-effect waves-light btn" href="/bulksms">Bulk SMS</a></li>
+        <li><a class="input-field right hide-on-med-and-down right">
+          <form action="/" method="GET">
+          <input id="search" type="search" name="search">
+          <a class="label-icon" onkeypress="dosomething();" for="search"><i class="material-icons">search</i></a>
+          </form>
+        </a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>NEW CLIENT</h4>
+      <p>choose what you want...</p>
+    </div>
+    <div class="modal-footer">
+      <a href="/newclient" class="modal-close waves-effect waves-green btn-flat">Gym member</a>
+      <a href="/newclient" class="modal-close waves-effect waves-green btn-flat">Personal traning</a>
+      <a href="/newclient" class="modal-close waves-effect waves-green btn-flat">Group class</a>
+    </div>
+  </div>
+
+
+<div>
+  
+  <h3><center><%= client.clientname %></center></h3>
+</div>
+
+  <nav>
+    <div class="nav-wrapper">
+      <ul class="left hide-on-med-and-down">
+        <li><a href="/details/profile" class="waves-effect waves-light btn">PROFILE & BILLING HISTORY</a></li>
+        <li><a href="/details/body/<%= client._id %>" class="waves-effect waves-light btn">BODY MEASUREMENTS</a></li>
+         <li><a href="/details/workout/<%=client._id%>" class="waves-effect waves-light btn">WORKOUT PLANS</a></li>
+        <li><a href="/details/diet/<%=client._id%>" class="waves-effect waves-light btn">DIET PLANS</a></li>
+        <li><a href="/details/documents/<%=client._id%>" class="waves-effect waves-light btn">DOCUMENTS</a></li>
+         <li><a href="/details/attendance/<%= client._id %>" class="waves-effect waves-light btn">ATTENDANCE</a></li>
+      </ul>
+    </div>
+  </nav><br><br><br><br>
+
+ <div style="text-align: center;" class="section7">
+   <div class="container">
+     <div class="row">
+ 
+      
+  <% diet.forEach(function(diet){ %>
+     <div style="border: 1px solid #212121;>
+       <li><a  class="btn-flat disabled"><%= diet.dietplanname %><a onclick="M.toast({html: 'remove succesfully'})" href="/details/<%= diet._id%>/removediet/<%=client._id%>"><i class="material-icons">more_vert</i></a></li><br>
+     </div>
+  <% }); %><br>
+
+ 
+
+     <center><a class="waves-effect waves-light btn modal-trigger" href="#modal2">ADD DIETPLAN</a></center>
+
+         <div id="modal2" class="modal">
+          <div class="modal-content">
+            <h4>ADD DIETPLAN</h4>
+            <p>
+           
+                    <div class="section8">
+          <form action="/details/adddiet/<%=client._id%>" method="POST">
+             <div class="row">
+        <div class="row">
+                 <div class="input-field col s12">
+                 <i class="material-icons prefix">account_circle</i>
+                 <input type="text" name="date" class="datepicker">
+                 <label for="date">Date</label>
+                </div>
+        </div>   
+
+        <div class="row">
+        <div class="input-field col s12">
+             <i class="material-icons prefix">account_circle</i>
+          <input id="dietplanname" type="text" name="dietplanname" class="validate">
+          <label for="dietplanname">Diet Plan Name</label>
+        </div>
+      </div>
+
+        <div class="input-field col s12">
+
+        <select name="dietplantype">
+                <option name="group8" value="basic">Basic</option>
+                <option name="group8" value="starter">Starter</option>
+                <option name="group8" value="medium">Medium</option>
+                <option name="group8" value="hard">Hard</option>
+                <option name="group8" value="moderate">Moderate</option>
+        </select>
+        <label for="dietplantype" name="dietplantype" >Diet Plan Type</label>
+       </div>
+
+      <div class="input-field col s12">
+
+        <select name="item">
+                <option name="group9" value="Banana">Banana</option>
+                <option name="group9" value="chicken">Chicken</option>
+                <option name="group9" value="eggs">Eggs</option>
+                <option name="group9" value="fruits">Fruits</option>
+                <option name="group9" value="lemonjuice">Lemon Juice</option>
+        </select>
+        <label for="item" name="item" >Item</label>
+       </div>
+
+        <div class="row">
+        <div class="input-field col s12">
+             <i class="material-icons prefix">account_circle</i>
+          <input id="quantity" type="number" name="quantity" class="validate">
+          <label for="quantity">Quantity</label>
+        </div>
+      </div>
+       <div class="row">
+        <div class="input-field col s12">
+             <i class="material-icons prefix">account_circle</i>
+           <input type="text" class="timepicker" name="time">
+          <label for="time">Time</label>
+        </div>
+      </div>
+       <div class="row">
+        <div class="input-field col s12">
+             <i class="material-icons prefix">account_circle</i>
+          <input id="specification" type="text" name="specification" class="validate">
+          <label for="specification">Specification</label>
+        </div>
+      </div>
+          
+           <input type="hidden" name="instant" value="0"><div class="input-field col l12 s12 m12 center">
+            <button class="btn waves-effect waves-light" id="btnsubmit" type="submit" name="register">submit </button>
+
+          </div>
+
+      </form>  
+     </div>
+   </div>
+ </div>
+
+               
+            </p>
+          </div>
+  </div>
+ 
+       
+
+ 
+<script>
+   
+ $(document).ready(function(){
+    $('.modal').modal();
+  });
+
+  $(document).ready(function(){
+    $('.datepicker').datepicker();
+  });
+
+    $(document).ready(function(){
+    $('.timepicker').timepicker();
+  });
+
+    $(document).ready(function(){
+    $('select').formSelect();
+  });
+</script>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.js" integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA="crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+
+
+</body>
+</html>

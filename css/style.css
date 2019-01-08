@@ -1,0 +1,45 @@
+.section1 h1{
+	font-size: 22px;
+}
+
+.section1 #div {
+	height: 65px;
+}
+
+.section1 #div p {
+	color: white;
+	margin-left: 10px;
+}
+
+.section1 #div2 p {
+ color: black;
+ margin-left: 10px;
+}
+
+.section1 #div2 {
+	/*background-color: black;*/
+	
+	margin-top: 104px;
+}
+
+@import "compass/css3";
+
+.progress {
+  width: 100%;
+  height: 50px;
+}
+.progress-wrap {
+  background: #f80;
+  margin: 20px 0;
+  overflow: hidden;
+  position: relative;
+  .progress-bar {
+    background: #ddd;
+    left: 0;
+    position: absolute;
+    top: 0;
+  }
+}
+
+
+

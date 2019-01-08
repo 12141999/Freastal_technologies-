@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>freastal technologies</title>
+
+
+  
+
+    <!-- css -->
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" type="text/css" href="./css/style2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- font -->
+    <style>
+    @import url('https://fonts.googleapis.com/css?family=Nunito');
+    </style> 
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.js" integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA="crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+
+</head>
+<body>
+<% include header %>
+
+ <nav>
+    <div class="nav-wrapper">
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <li><a class="waves-effect waves-light btn modal-trigger" href="#modal1">New Client</a></li>
+        <li><a class="waves-effect waves-light btn" href="/attendance/absent">Absent Client</a></li>
+        <li><a class="waves-effect waves-light btn" href="/attendance/present">Present Client</a></li>
+        <li><a class="waves-effect waves-light btn" href="/bulksms">Bulk SMS</a></li>
+        <li><a class="input-field right hide-on-med-and-down right">
+          <form action="/" method="GET">
+          <input id="search" type="search" name="search">
+          <a class="label-icon" onkeypress="dosomething();" for="search"><i class="material-icons">search</i></a>
+          </form>
+        </a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>NEW CLIENT</h4>
+      <p>choose what you want...</p>
+    </div>
+    <div class="modal-footer">
+      <a href="/newclient" class="modal-close waves-effect waves-green btn-flat">Gym member</a>
+      <a href="/newclient" class="modal-close waves-effect waves-green btn-flat">Personal traning</a>
+      <a href="/newclient" class="modal-close waves-effect waves-green btn-flat">Group class</a>
+    </div>
+  </div>
+
+<div>
+ 
+  <h3><center><%= client.clientname %></center></h3>
+</div>
+
+
+  <nav>
+    <div class="nav-wrapper">
+      <ul class="left hide-on-med-and-down">
+        <li><a href="/profile/<%= client._id %>" class="waves-effect waves-light btn">PROFILE & BILLING HISTORY</a></li>
+        <li><a href="/details/body/<%= client._id %>" class="waves-effect waves-light btn">BODY MEASUREMENTS</a></li>
+         <li><a href="/details/workout/<%= client._id %>" class="waves-effect waves-light btn">WORKOUT PLANS</a></li>
+        <li><a href="/details/diet/<%= client._id %>" class="waves-effect waves-light btn">DIET PLANS</a></li>
+        <li><a href="/details/documents/<%= client._id %>" class="waves-effect waves-light btn">DOCUMENTS</a></li>
+        <li><a href="/details/attendance/<%= client._id %>" class="waves-effect waves-light btn">ATTENDANCE</a></li>
+      </ul>
+    </div>
+  </nav><br><br>
+
+  <div class="section4">
+    <div class="row">
+      <div class="col s6 m3 l3">
+        <img src="/views/profile/uploads/<%= client.profile%>" class="responsive-img">
+      </div>
+      <div class="col s9 m9 l9">
+        <div class="container">
+          <div class="row">
+            <div class="col s12 m4 l4">
+
+               <div class="row">
+        <div class="input-field col s12">
+             <i class="material-icons prefix">account_circle</i>
+          <input id="clientname" type="text" name="clientname" class="validate" value="<%=client.clientname%>">
+          <label for="clientname">Clientname</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+             <i class="material-icons prefix">account_circle</i>
+          <input id="membershipid" type="text" name="membershipid" class="validate" value="<%=client.membershipid%>">
+          <label for="membershipid">Membership ID</label>
+        </div>
+      </div>
+       <div class="row">
+        <div class="input-field col s12">
+              <i class="material-icons prefix">phone</i>
+          <input id="contactno" type="text" name="contactno" class="validate" value="<%=client.contactno%>">
+          <label for="contactno">Contact no</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+              <i class="material-icons prefix">phone</i>
+          <input id="alternatecontactno" type="text" name="alternatecontactno" class="validate" value="<%=client.alternatecontactno%>">
+          <label for="alternatecontactno">Alternate Contact no</label>
+        </div>
+      </div>
+
+            <div class="row">
+        <div class="input-field col s12">
+             <i class="material-icons prefix">account_circle</i>
+          <input id="clientrepresntative" type="text" name="clientrepresntative" class="validate" value="admin">
+          <label for="clientrepresntative">Client Represntative</label>
+        </div>
+      </div>
+
+            </div>
+            <div class="col s12 m4 l4">
+              
+              <div class="row">
+        <div class="input-field col s12">
+             <i class="material-icons prefix">account_circle</i>
+          <input id="profession" type="text" name="profession" class="validate" value="<%=client.profession%>">
+          <label for="profession">Profession</label>
+        </div>
+      </div>
+       <div class="row">
+        <div class="input-field col s12">
+             <i class="material-icons prefix">account_circle</i>
+          <input id="email" type="email" name="email" class="validate" value="<%=client.email%>">
+          <label for="email">Email</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+             <i class="material-icons prefix">account_circle</i>
+          <input type="text" name="marriageanniversary" class="datepicker" value="<%=client.marriageanniversary%>">
+          <label for="marriageanniversary">Marriage anniversary</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+             <i class="material-icons prefix">account_circle</i>
+             <label for="DOB">Date of birth</label>
+          
+          <input type="text" name="DOB" class="datepicker" value="<%=client.dob%>">
+        </div>
+      </div>
+        <div class="row">
+          <div class="col s12">
+          <label for="gender" name="gender" value="<%=client.gender%>" style="font-size: 16px;" >Gender</label> 
+            <p>
+            <label>
+            <input value="male" type="radio" name="group1" checked />
+            <span>male</span>
+          </label >
+          <label>
+            <input value ="female" type="radio" name="group1" />
+            <span>female</span>
+          </label>
+           </p>
+        </div>
+      </div>
+
+            </div>
+            <div class="col s12 m4 l4">
+              
+              <div class="row">
+        <div class="input-field col s12">
+             <i class="material-icons prefix">account_circle</i>
+          <input id="trainer" type="text" name="trainer" class="validate">
+          <label for="trainer">Trainer</label>
+        </div>
+  </div>
+
+             <div class="input-field col s12">
+
+    <select>
+      <option value="" disabled selected>Choose your option</option>
+            <option name="group2" value="cold calling">cold calling</option>
+            <option name="group2" value="event">event</option>
+            <option name="group2" value="flex">flex</option>
+            <option name="group2" value="flyer">flyer</option>
+            <option name="group2" value="instagram">instagram</option>
+            <option name="group2" value="newspaper">Newspaper</option>
+    </select>
+    <label for="clientsource" name="clientsource" >Client Source</label>
+  </div>
+
+           <div class="row">
+        <div class="input-field col s12">
+             <i class="material-icons prefix">account_circle</i>
+          <input id="status" type="text" name="status" class="validate" value="active">
+          <label for="status">Status</label>
+        </div>
+  </div>  
+
+              <div class="row">
+        <div class="input-field col s12">
+             <i class="material-icons prefix">account_circle</i>
+          <input id="deletemember" type="text" name="deletemember" class="validate" value="no">
+          <label for="deletemember">Delete Memeber</label>
+        </div>
+  </div>
+
+    <div class="row">
+        <div class="input-field col s12">
+             <i class="material-icons prefix">account_circle</i>
+          <input type="text" name="dateofjoining" class="datepicker" value="<%=client.dateofjoining%>">
+          <label for="dateofjoining">Date of Joining</label>
+        </div>
+      </div>
+
+            </div>
+          </div>
+         <div class="row">
+        <div class="input-field col s12">
+             <i class="material-icons prefix">account_circle</i>
+          <input id="address" type="text" name="address" class="validate" value="<%=client.address%>">
+          <label for="address">Address</label>
+        </div>
+  </div>  
+   <div class="row">
+        <div class="input-field col s12">
+             <i class="material-icons prefix">account_circle</i>
+          <input id="remarks" type="text" name="remarks" class="validate" value="<%=client.remarks%>">
+          <label for="remarks">Remarks</label>
+        </div>
+  </div>  
+     </div>
+
+    
+      </div>
+    </div>
+  </div>
+
+<script>
+   $(document).ready(function(){
+    $('.modal').modal();
+  });
+
+  $(document).ready(function(){
+    $('.datepicker').datepicker();
+  });
+
+    $(document).ready(function(){
+    $('.timepicker').timepicker();
+  });
+
+    $(document).ready(function(){
+    $('select').formSelect();
+  });
+</script>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.js" integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA="crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+
+
+</body>
+</html>
